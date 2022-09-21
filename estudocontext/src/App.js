@@ -1,15 +1,16 @@
-import { useState } from 'react';
-import { DoubleCounter } from './doubleCounter';
-import { HandleCounter } from './handleCounter';
+import { DoubleCounter } from './components/doubleCounter';
+import { HandleCounter } from './components/handleCounter';
+import { CounterContextProvider } from './contexts/CounterContext';
 
 function App() {
-  const [counter, setCounter] = useState(0);
 
   return (
+    <CounterContextProvider>
     <div>
-      <HandleCounter counter={counter} setCounter={setCounter} />
-      <DoubleCounter counter={counter} />
+      <HandleCounter />
+      <DoubleCounter />    
     </div>
+    </CounterContextProvider>
   );
 }
 
